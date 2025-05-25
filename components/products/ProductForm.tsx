@@ -235,7 +235,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
               name="category"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Category</FormLabel>
+                  <FormLabel>Категорія</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Категорії"
@@ -303,7 +303,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
               name="colors"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Colors</FormLabel>
+                  <FormLabel>Варіації</FormLabel>
                   <FormControl>
                     <MultiText
                       placeholder="Варіації"
