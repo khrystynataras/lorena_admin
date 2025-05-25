@@ -13,7 +13,7 @@ const OrderDetails = async ({ params }: { params: { orderId: string } }) => {
         ID Замовлення: <span className="text-base-medium">{orderDetails._id}</span>
       </p>
       <p className="text-base-bold">
-        Ім'я клієнта: <span className="text-base-medium">{customer.name}</span>
+        Ім`я клієнта: <span className="text-base-medium">{customer.name}</span>
       </p>
       <p className="text-base-bold">
         Поштова адреса: <span className="text-base-medium">{street}, {city}, {state}, {postalCode}, {country}</span>
