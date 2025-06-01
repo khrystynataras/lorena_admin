@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "https://lorena-store-delta.vercel.app",
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
@@ -16,7 +16,10 @@ export async function POST(req: NextRequest) {
     const { cartItems, customer } = await req.json();
 
     if (!cartItems || !customer) {
-      return new NextResponse("Недостатньо даних для оформлення замовлення", { status: 400 });
+      return new NextResponse("Недостатньо даних для оформлення замовлення", {
+        status: 400,
+        headers: corsHeaders,
+      });
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -51,7 +54,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(session, { headers: corsHeaders });
   } catch (err) {
-    console.log("[checkout_POST]", err);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    console.error("[checkout_POST]", err);
+    return new NextResponse("Internal Server Error", {
+      status: 500,
+      headers: corsHeaders,
+    });
   }
 }
