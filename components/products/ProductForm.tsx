@@ -191,7 +191,6 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                 <FormMessage className="text-red-1" />
               </FormItem>
             )}
-            
           />
 
           <div className="md:grid md:grid-cols-3 gap-8">
