@@ -18,7 +18,7 @@ const OrderDetails = async ({ params }: { params: { orderId: string } }) => {
         Поштова адреса: <span className="text-base-medium">{street}, {city}, {state}, {postalCode}, {country}</span>
       </p>
       <p className="text-base-bold">
-        Загальна сума: <span className="text-base-medium">${orderDetails.totalAmount}</span>
+        Загальна сума: <span className="text-base-medium">₴{orderDetails.totalAmount}</span>
       </p>
       <p className="text-base-bold">
         Ідентифікатор тарифу на доставку: <span className="text-base-medium">{orderDetails.shippingRate}</span>
