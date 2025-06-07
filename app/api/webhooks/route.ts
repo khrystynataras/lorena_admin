@@ -53,7 +53,7 @@ export const POST = async (req: NextRequest) => {
       const newOrder = new Order({
         customerClerkId: customerInfo.clerkId,
         products: orderItems,
-        shippingAddress,
+        shippingAddress: shippingAddress,
         shippingRate: session?.shipping_cost?.shipping_rate,
         totalAmount: session.amount_total ? session.amount_total / 100 : 0,
       })
