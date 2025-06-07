@@ -17,7 +17,6 @@ export const POST = async (req: NextRequest) => {
 
     if (event.type === "checkout.session.completed") {
       const session = event.data.object
-      console.log("Session Details:", session)
 
       const customerInfo = {
         clerkId: session?.client_reference_id,
@@ -26,11 +25,11 @@ export const POST = async (req: NextRequest) => {
       }
 
       const shippingAddress = {
-        street: session?.shipping_details?.address?.line1,
-        city: session?.shipping_details?.address?.city,
-        state: session?.shipping_details?.address?.state,
-        postalCode: session?.shipping_details?.address?.postal_code,
-        country: session?.shipping_details?.address?.country,
+        street: session?.customer_details?.address?.line1,
+        city: session?.customer_details?.address?.city,
+        state: session?.customer_details?.address?.state,
+        postalCode: session?.customer_details?.address?.postal_code,
+        country: session?.customer_details?.address?.country,
       }
 
       const retrieveSession = await stripe.checkout.sessions.retrieve(
